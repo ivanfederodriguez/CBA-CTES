@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora CBA/CBT - IPECD Corrientes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col items-center py-8 px-4">
+
+    <header class="mb-8 text-center max-w-3xl w-full flex flex-col items-center">
+        <!-- Logo IPECD -->
+        <div class="mb-6 flex flex-col items-center">
+            <img src="https://estadistica.corrientes.gob.ar/images/ipecd.svg" alt="Logo IPECD" class="h-16 mb-3">
+            <h2 class="text-brand-800 font-bold text-lg tracking-tight uppercase hidden">IPECD</h2>
+            <p class="text-slate-500 text-xs font-medium uppercase tracking-widest">Instituto Provincial de Estadística
+                y Ciencia de Datos</p>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-2 tracking-tight">Calculadora de Canasta Básica
+            Corrientes</h1>
+
+        <div
+            class="mt-2 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-medium border border-brand-100">
+            <span class="relative flex h-2 w-2">
+                <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+            </span>
+            Actualizado a la 1er Semana de Diciembre 2025
+        </div>
+    </header>
+
+    <!-- Grid Layout: Mobile (1 col) -> Desktop (2 cols) -->
+    <!-- Orden Móvil: Integrantes -> Totales -> Evolución -> Composición -->
+    <!-- Orden Desktop: 
+         Fila 1: Integrantes (Izq) | Totales (Der)
+         Fila 2: Evolución (Izq)   | Composición (Der) 
+    -->
+    <main class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+
+        <!-- 1. Integrantes (Arriba Izquierda Desktop) -->
+        <section class="order-1 lg:order-1 h-full">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 h-full">
+                <h2 class="text-xl font-semibold mb-6 flex items-center gap-2 text-brand-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Integrantes del Hogar
+                </h2>
+
+                <div
+                    class="flex flex-col sm:flex-row gap-4 mb-8 items-end bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <div class="flex-1 w-full">
+                        <label for="sexo" class="block text-sm font-medium text-slate-700 mb-1">Sexo</label>
+                        <select id="sexo"
+                            class="w-full rounded-lg border-slate-300 border px-3 py-2.5 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all bg-white">
+                            <option value="M">Varón</option>
+                            <option value="F">Mujer</option>
+                        </select>
+                    </div>
+                    <div class="flex-1 w-full">
+                        <label for="edad" class="block text-sm font-medium text-slate-700 mb-1">Edad (años)</label>
+                        <input type="number" id="edad" min="0" max="120" placeholder="Ej: 30"
+                            class="w-full rounded-lg border-slate-300 border px-3 py-2.5 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all">
+                    </div>
+                    <button id="btn-agregar"
+                        class="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-medium py-2.5 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm shadow-brand-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Agregar
+                    </button>
+                </div>
+
+                <div class="overflow-hidden rounded-xl border border-slate-200">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-slate-50 text-slate-600 font-medium border-b border-slate-200">
+                            <tr>
+                                <th class="px-4 py-3">Sexo</th>
+                                <th class="px-4 py-3">Edad</th>
+                                <th class="px-4 py-3 text-right">Adulto Eq.</th>
+                                <th class="px-4 py-3 text-center">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-integrantes" class="divide-y divide-slate-100 bg-white">
+                            <tr id="empty-state">
+                                <td colspan="4" class="px-4 py-8 text-center text-slate-400 italic">
+                                    No has agregado integrantes aún.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-4 flex justify-between items-center px-2">
+                    <span class="text-slate-600 font-medium text-sm">Total Adultos Equivalentes</span>
+                    <span id="total-ae" class="text-xl font-bold text-slate-800">0.00</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Totales (Arriba Derecha Desktop) -->
+        <section class="order-2 lg:order-2 h-full">
+            <div
+                class="bg-brand-900 text-white rounded-2xl shadow-lg p-6 sm:p-8 relative overflow-hidden transition-all duration-300 h-full flex flex-col justify-center">
+                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-white opacity-5 rounded-full blur-2xl">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 -mb-4 -ml-4 w-32 h-32 bg-brand-500 opacity-20 rounded-full blur-3xl">
+                </div>
+
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-brand-100 font-medium uppercase tracking-wider text-xs">CANASTAS ESTIMADAS</h3>
+                    <span
+                        class="text-xs font-mono bg-brand-800 px-2 py-1 rounded text-brand-200 border border-brand-700">1ER
+                        SEMANA DIC 25</span>
+                </div>
+
+                <div class="space-y-8 relative z-10">
+                    <div>
+                        <div class="flex items-baseline justify-between mb-1">
+                            <span class="text-brand-100 text-sm">Canasta Básica Alimentaria</span>
+                            <span class="text-xs font-mono text-brand-300">CBA</span>
+                        </div>
+                        <div class="text-4xl sm:text-5xl font-bold text-white tracking-tight transition-all"
+                            id="total-cba">$0</div>
+                        <p class="text-brand-200/60 text-xs mt-1">Línea de Indigencia</p>
+                    </div>
+
+                    <div class="h-px bg-brand-700/50"></div>
+
+                    <div>
+                        <div class="flex items-baseline justify-between mb-1">
+                            <span class="text-brand-100 text-sm font-medium">Canasta Básica Total</span>
+                            <span class="text-xs font-mono text-brand-300">CBT</span>
+                        </div>
+                        <div class="text-4xl sm:text-5xl font-bold text-brand-300 tracking-tight transition-all"
+                            id="total-cbt">$0</div>
+                        <p class="text-brand-200/60 text-xs mt-1">Línea de Pobreza</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Gráfico Evolución (Abajo Izquierda Desktop) -->
+        <section class="order-3 lg:order-3">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 h-full">
+                <h3 class="font-semibold text-slate-700 text-sm mb-4">Evolución CBA</h3>
+                <div class="relative h-64 w-full">
+                    <canvas id="chart-evolution"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Gráfico Composición (Abajo Derecha Desktop) -->
+        <section class="order-4 lg:order-4">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 h-full">
+                <h3 class="font-semibold text-slate-700 text-sm mb-4">Composición CBA</h3>
+                <div class="relative h-64 w-full">
+                    <canvas id="chart-composition"></canvas>
+                </div>
+                <p class="text-xs text-slate-400 text-center mt-4">Valores estimados según ponderación de adulto
+                    equivalente.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
