@@ -7,31 +7,32 @@ const WEEKLY_DATA = [
     { label: '3° Nov 25', cba: 170523.05 },
     { label: '4° Nov 25', cba: 169811.46 },
     { label: '1° Dic 25', cba: 169976.31 },
+    { label: '2° Dic 25', cba: 171348.20 },
 
 ];
 
 // Valores Base (Semanal por Adulto Equivalente)
-const CBA_WEEKLY_BASE = 169976.31; // Valor última semana
-const CBT_WEEKLY_BASE = 355250.48; // Valor última semana (aprox)
+const CBA_WEEKLY_BASE = 171348.20; // Valor última semana
+const CBT_WEEKLY_BASE = 358117.73; // Valor última semana (aprox)
 
 // Composición CBA (Productos y Costo Base Semanal por AE)
 // Estimación basada en proporciones INDEC y valor total semanal
 const CBA_PRODUCTS = [
-    { label: 'Carnes', cost: 57564.82 },
-    { label: 'Frutas y Verduras', cost: 31649.22 },
-    { label: 'Panadería', cost: 26785.08 },
-    { label: 'Lácteos', cost: 19323.75 },
-    { label: 'Bebidas Alcohólicas', cost: 6273.17 },
-    { label: 'Yerba, Cafe y Té', cost: 5928.21 },
-    { label: 'Condimentos', cost: 5231.15 },
-    { label: 'Huevos', cost: 2860.78 },
-    { label: 'Bebidas no Alcohólicas', cost: 2805.04 },
-    { label: 'Arroz', cost: 2386.78 },
-    { label: 'Harinas', cost: 2185.84 },
-    { label: 'Fideos', cost: 2041.35 },
-    { label: 'Otros', cost: 1892.48 },
-    { label: 'Azúcar', cost: 1531.26 },
-    { label: 'Fiambres', cost: 1517.38 },
+    { label: 'Carnes', cost: 59144.01 },
+    { label: 'Frutas y Verduras', cost: 32849.47 },
+    { label: 'Panadería', cost: 25512.28 },
+    { label: 'Lácteos', cost: 19920.70 },
+    { label: 'Bebidas Alcohólicas', cost: 6427.69 },
+    { label: 'Yerba, Cafe y Té', cost: 5951.56 },
+    { label: 'Condimentos', cost: 5278.41 },
+    { label: 'Bebidas no Alcohólicas', cost: 2768.22 },
+    { label: 'Huevos', cost: 2595.94 },
+    { label: 'Arroz', cost: 2427.16 },
+    { label: 'Harinas', cost: 2156.74 },
+    { label: 'Fideos', cost: 1999.86 },
+    { label: 'Otros', cost: 1646.08 },
+    { label: 'Azúcar', cost: 1567.11 },
+    { label: 'Fiambres', cost: 1102.98 },
 
 ];
 
