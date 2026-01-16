@@ -8,12 +8,16 @@ const WEEKLY_DATA = [
     { label: '4° Nov 25', cba: 169811.46 },
     { label: '1° Dic 25', cba: 169976.31 },
     { label: '2° Dic 25', cba: 171348.20 },
-
+    { label: '3° Dic 25', cba: 171105.31 },
+    { label: '4° Dic 25', cba: 174338.30 },
+    { label: '1° Ene 26', cba: 175010.20 },
+    { label: '2° Ene 26', cba: 175611.45 },
+    { label: '3° Ene 26', cba: 177804.25 },
 ];
 
 // Valores Base (Semanal por Adulto Equivalente)
-const CBA_WEEKLY_BASE = 171348.20; // Valor última semana
-const CBT_WEEKLY_BASE = 358117.73; // Valor última semana (aprox)
+const CBA_WEEKLY_BASE = 177804.25; // Valor última semana
+const CBT_WEEKLY_BASE = 371610.87; // Valor última semana (aprox)
 
 // Composición CBA (Productos y Costo Base Semanal por AE)
 // Estimación basada en proporciones INDEC y valor total semanal
