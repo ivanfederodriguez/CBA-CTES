@@ -196,7 +196,7 @@ function initCharts() {
                     backgroundColor: '#10b981',
                     data: [],
                     tension: 0.3,
-                    pointRadius: 4,
+                    pointRadius: 10,
                     pointBackgroundColor: '#fff',
                     pointBorderWidth: 2
                 }
