@@ -7,37 +7,37 @@ const WEEKLY_DATA = [
     { label: '3° Nov 25', cba: 170523.05 },
     { label: '4° Nov 25', cba: 169811.46 },
     { label: '1° Dic 25', cba: 169976.31 },
-    { label: '2° Dic 25', cba: 171348.20 },
     { label: '3° Dic 25', cba: 171105.31 },
-    { label: '4° Dic 25', cba: 174338.30 },
-    { label: '1° Ene 26', cba: 175010.20 },
+    { label: '4° Dic 25', cba: 174338.3 },
+    { label: '1° Ene 26', cba: 175010.2 },
     { label: '2° Ene 26', cba: 175611.45 },
     { label: '3° Ene 26', cba: 177804.25 },
+    { label: '4° Ene 26', cba: 178802.82 },
+    { label: '5° Ene 26', cba: 180023.19 },
 ];
 
-// Valores Base (Semanal por Adulto Equivalente)
-const CBA_WEEKLY_BASE = 177804.25; // Valor última semana
-const CBT_WEEKLY_BASE = 371610.87; // Valor última semana (aprox)
+// Valores Base (Semanal por Adulto Equivalente) - Actualizado a 5° Sem. Ene 26
+const CBA_WEEKLY_BASE = 180023.19; // Valor 5ta Semana Ene 2026
+const CBT_WEEKLY_BASE = 376248.46; // Valor 5ta Semana Ene 2026
 
 // Composición CBA (Productos y Costo Base Semanal por AE)
 // Estimación basada en proporciones INDEC y valor total semanal
 const CBA_PRODUCTS = [
-    { label: 'Carnes', cost: 59144.01 },
-    { label: 'Frutas y Verduras', cost: 32849.47 },
-    { label: 'Panadería', cost: 25512.28 },
-    { label: 'Lácteos', cost: 19920.70 },
-    { label: 'Bebidas Alcohólicas', cost: 6427.69 },
-    { label: 'Yerba, Cafe y Té', cost: 5951.56 },
-    { label: 'Condimentos', cost: 5278.41 },
-    { label: 'Bebidas no Alcohólicas', cost: 2768.22 },
-    { label: 'Huevos', cost: 2595.94 },
-    { label: 'Arroz', cost: 2427.16 },
-    { label: 'Harinas', cost: 2156.74 },
-    { label: 'Fideos', cost: 1999.86 },
-    { label: 'Otros', cost: 1646.08 },
-    { label: 'Azúcar', cost: 1567.11 },
-    { label: 'Fiambres', cost: 1102.98 },
-
+    { label: 'Carnes', cost: 66900.39 },
+    { label: 'Frutas y Verduras', cost: 37613.14 },
+    { label: 'Panadería', cost: 21573.60 },
+    { label: 'Lácteos', cost: 19370.45 },
+    { label: 'Bebidas Alcohólicas', cost: 6348.06 },
+    { label: 'Yerba, Cafe y Té', cost: 5978.61 },
+    { label: 'Condimentos', cost: 5341.05 },
+    { label: 'Bebidas no Alcohólicas', cost: 2890.02 },
+    { label: 'Huevos', cost: 2826.62 },
+    { label: 'Arroz', cost: 2323.55 },
+    { label: 'Harinas', cost: 2157.12 },
+    { label: 'Fideos', cost: 1957.32 },
+    { label: 'Azúcar', cost: 1703.86 },
+    { label: 'Otros', cost: 1644.01 },
+    { label: 'Fiambres', cost: 1395.37 },
 ];
 
 // Tabla de Adulto Equivalente
@@ -196,7 +196,7 @@ function initCharts() {
                     backgroundColor: '#10b981',
                     data: [],
                     tension: 0.3,
-                    pointRadius: 10,
+                    pointRadius: 4,
                     pointBackgroundColor: '#fff',
                     pointBorderWidth: 2
                 }
